@@ -12,31 +12,46 @@
     <ol>
       <li>Where should you use constants, and where should you use variables? Can they all be constants?</li>
       <p>
-				[Replace this with you answer]
+				\Constants should be used when the value is not meant to change throughout the program, which helps avoid accidental reassignments and makes coding more predictable and easier to understand. 
+        Variables such as let or var, is used when the value is changing throughout the program, when it runs. 
+        Since some data is changing dynamically, like runtime result and user inputs, not all values can be constants. 
+        
 			</p>
       <li>How do parentheses affect the arithmetic outcome of an expression?</li>
       <p>
-				[Replace this with you answer]
+				Parentheses affect the arithmetic expression define order and operations by overriding the precedence rules. In general it is multiplication and division happens before addition and subtraction. 
+        If the parentheses is put around to numbers that you are meant to add together that operation is forced to happen first. 
 			</p>
       <li>How do we limit floating-point numbers to a given number of decimals?</li>
       <p>
-				[Replace this with you answer]
+				
+        To limit the floating-point numbers you can use toFixed() or toPrecision() 
+        toFixed() fix the numbers of desimals and toPrecision() you use to limit the total number of significant digits. 
+        
 			</p>
       <li>How can we compare two floating-point values to see if they are equal (is 12.199999 the same as 12.2)?</li>
       <p>
-				[Replace this with you answer]
+				To compare two floating-point values to se if they are equal you add a small value called “epsilon”, like this:
+
+        Math.abs(a – b)  <  epsilon;
+
 			</p>
       <li>What do comparison operators return, and how can we check if they are FALSE or TRUE?</li>
       <p>
-				[Replace this with you answer]
+				Comparison operators return a Boolean value either true or false. 
+        You can either use if function or do it directly. 
+
+
 			</p>
       <li>How does the Math.random() function work, and what can it be used for?</li>
       <p>
-				[Replace this with you answer]
+				Math.random() function generates a random floating-point number between 0 (inclusive) and 1 (exclusive). 
+        This function can be used for different dice rolls, selecting random items or generates different Ids.
 			</p>
       <li>What is modulus (%), and when do we need this operator in mathematical operations?</li>
       <p>
-				[Replace this with you answer]
+				The modulus operator (%) returns the remainder of a division between two numbers. 
+        It’s useful in situation where you need to fine a number divides evenly into another, or to wrap around values. 
 			</p>
     </ol>
 		<script type="module" src="./task_2-2.mjs" defer></script>
