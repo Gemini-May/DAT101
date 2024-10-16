@@ -14,7 +14,7 @@ printOut("--- Part 2 -----------------------------------------------------------
 /* Put your code below here!*/
 //converter 25m og 34cm til inches. 1inch=25.4mm
 
-const milliinch = 25.4
+const milliinch = 25.4;
 const answer = 25.34 * 1000/milliinch;
 const exactanswer =answer.toFixed(2);
 
@@ -48,8 +48,8 @@ printOut("Days = " + part4_days);
 
 part4_calc = part4_calc - part4_days;
 part4_calc = part4_calc * HoursInDay;
-const part4_hour = Math.floor(part4_calc)
-printOut("Hour = " + part4_hour)
+const part4_hour = Math.floor(part4_calc);
+printOut("Hour = " + part4_hour);
 
 part4_calc = part4_calc - part4_hour;
 part4_calc = part4_calc * minutesInHour;
