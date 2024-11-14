@@ -10,8 +10,35 @@
       <span id="txtOut" style="white-space: nowrap"></span>
     </div>
     <ol>
-      <li>[Write the question here, and copy this for more questions]</li>
-      <p>[Write your answer here, and copy this for more answers]</p>
+      <li>[In part 1, is it possible to solve the problem using a single "for" loop?]</li>
+      <p>[ 
+        Yes, it is often possible to solve a problem using a single for loop in JavaScript. Whether it’s practical or efficient to do so 
+        depends on the specific problem, but many tasks that might traditionally involve nested loops or multiple loops can be simplified to 
+        a single loop with the right approach. For example use an if-else statement within the for loop, printOut both the count down and 
+        count up. this is one of the many ways to solve this task. ]</p>
+      <li>[In part 2, can we create what is known as an "infinite" loop within the condition of the "while" loop?
+        Describe what would or would not be necessary to achieve this. Provide a thorough explanation of
+        your answer]</li>
+      <p>[Yes, it is possible to create a "infinite" loop within the condition of the "while" loop. This would occur if the condition is 
+        always true, or a condition tha never fail, which causes the loop to run continuously without ever terminating. However, it's 
+        important to note that infinite loops can have side effects, such as freezing your application or consuming excessive resources, so 
+        they should be used intentionally and with caution. ]</p>
+      <li>[Discuss briefly how quickly or slowly a computer might be able to compute this, considering the
+        number of guesses and the time it takes. How does the program behave while it is guessing? Can
+        the program perform other tasks concurrently?]</li>
+      <p>[In part 2 there is less numbers to get the number 45, but here it is a lot more numbers, which will take a little more time for the
+        for the computer to compute. Since the approach we take here is a random number between 1 and 1M, means that the target number will 
+        take like around 500 000 random guesses to fined the correct number. not to mention that the program runs in a single threaded manner, 
+        which means that it can only read one line at the time. The Date.now() is measuring the time taken during the guessing, and will show 
+        how quickly the program performs the task, which will take a number of seconds or milliseconds. ]</p>
+      <li>[Explain the relationship between rows and columns in nested "for" loops. Can we, for instance,
+        change the order, considering rows to be innermost or columns to be innermost, or does this not
+        matter?]</li>
+      <p>[In nested "for" loops, the relationship between rows and columns is defined by the order in which the loops are nested, which directly 
+        affects how elements in a grid or matrix are accessed. How this works is that the outer loop iterates over rows and the inner loop 
+        iterates over columns within each row. Changing the order generally does not affect functionality if each element is processed individually 
+        without dependency on the processing order. However, if processing order matters (for example, if results depend on accessing items 
+        row-by-row), you should keep rows as the outer loop and columns as the inner loop.]</p>
     </ol>
     <script type="module" src="./task_3-2.mjs" defer></script>
   </body>
