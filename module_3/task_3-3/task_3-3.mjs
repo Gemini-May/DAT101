@@ -48,11 +48,11 @@ function daysUntilRelease() {
 
 daysUntilRelease();
 
-printOut("Replace this with you answer!");
 printOut(newLine);
 
 printOut("--- Part 3 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
+//Create a function that receives the radius of a circle and prints the diameter, circumference, and area
 
 function calculatingCircleProperties(radius) {
   const diameter = 2 * radius;
@@ -67,7 +67,6 @@ function calculatingCircleProperties(radius) {
 
 calculatingCircleProperties(9);
 
-printOut("Replace this with you answer!");
 printOut(newLine);
 
 printOut("--- Part 4 ----------------------------------------------------------------------------------------------");
@@ -86,7 +85,6 @@ function calculatingRactangleProperties([width, hight]) {
 
 calculatingRactangleProperties([5, 9]);
 
-printOut("Replace this with you answer!");
 printOut(newLine);
 
 printOut("--- Part 5 ----------------------------------------------------------------------------------------------");
@@ -104,6 +102,7 @@ function convertTemperature(aTemp, aType) {
   switch (aType) {
     case EtemperaturType.celsius:
       printOut("Convert from Celsius ");
+      
       /*Convert to Fahrenheit
             Fahrenheit =  (kelvin - 273.15) * 9/5 + 32*/
       celsius = aTemp;
@@ -128,12 +127,21 @@ function convertTemperature(aTemp, aType) {
       celsius = kelvin - 273.15;
       fahrenheit = ((kelvin - 273.15) * 9) / 5 + 32;
       break;
+
+     return;
   }
+
+  printOut("Celsius: " + celsius.toString());
+  printOut("Kelvin: " + kelvin.toString());
+  printOut("Fahrenheit: " + fahrenheit.toString());
 }
 
-convertTemperature(0, EtemperaturType.celsius);
+convertTemperature(23, EtemperaturType.celsius);
+printOut(newLine);
+convertTemperature(250, EtemperaturType.Kelvin);
+printOut(newLine);
+convertTemperature(120, EtemperaturType.fahrenheit);
 
-printOut("Replace this with you answer!");
 printOut(newLine);
 
 printOut("--- Part 6 ----------------------------------------------------------------------------------------------");
@@ -170,57 +178,146 @@ if (Number.isNaN(netPrice)) {
   printOut("netPrice = " + netPrice.toFixed());
 }
 
-printOut("Replace this with you answer!");
 printOut(newLine);
 
 printOut("--- Part 7 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
-printOut("Replace this with you answer!");
+//Create a function that takes 3 arguments and returns the following calculation.
+
+function calculate(speed, distance, time) {
+  switch (true) {
+      case (distance === undefined && time !== undefined && speed !== undefined):
+          // Calculate distance if missing
+          distance = speed * time;
+          break;
+      
+      case (distance !== undefined && time === undefined && speed !== undefined):
+          // Calculate time if missing
+          time = distance / speed;
+          break;
+      
+      case (distance !== undefined && time !== undefined && speed === undefined):
+          // Calculate speed if missing
+          speed = distance / time;
+          break;
+      
+      case (distance === undefined || time === undefined || speed === undefined):
+          // If more than one parameter is missing, return NaN
+          printOut("NaN");
+          break;
+      
+      default:
+          printOut('Invalid Input');
+          break;
+  }
+
+  printOut("Speed = " + speed + "km/h");
+  printOut("Distance = " + distance + "km");
+  printOut("time = " + time + "h");
+} 
+
+
+calculate(undefined,100,2);
+printOut(newLine);
+calculate(50,undefined,2);
+printOut(newLine);
+calculate(50,100,undefined);
+printOut(newLine);
+calculate(undefined,100);
+
+
 printOut(newLine);
 
 printOut("--- Part 8 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
-printOut("Replace this with you answer!");
+//Create a function that takes four parameters and returns a result. Parameter one: A text string. Parameter 
+
+function modifyText(text, maxSize, char, insertAfter) {
+  let newText = text;
+
+  // Check if the text length is smaller than the maximum size
+  while (newText.length < maxSize) {
+      if (insertAfter) {
+          newText += char; // Add character at the end
+      } else {
+          newText = char + newText; // Add character at the beginning
+      }
+  }
+
+  // Print the result
+  printOut(newText);
+
+  // Return the result
+  return newText;
+}
+
+modifyText("Hello", 10, "*", true); // Adds '*' after, e.g., "Hello*****"
+modifyText("Hello", 10, "*", false);
+
+
 printOut(newLine);
 
 printOut("--- Part 9 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
+//From mathematics, we have the following expression. Create a function or functions that can test this expression for 200 lines.
 
-function testMathIsFun() {
-  let op = 1;
-  let line = 1;
+function testMathExpressions() {
+  for (let line = 1; line <= 200; line++) {
+      // Number of terms in the expression
+      let numTerms = line + 1;
+      
+      // Generate terms for the left-hand side (LHS)
+      let leftside = [];
+      for (let i = 0; i < numTerms; i++) {
+          leftside.push(line * numTerms - numTerms + 1 + i);
+      }
 
-  // left side
+      // Generate terms for the right-hand side (RHS)
+      let rightside = [];
+      for (let i = 0; i < numTerms; i++) {
+          rightside.push(line * numTerms + 1 + i);
+      }
 
-  let ok = false;
+      // Calculate sums
+      let lhsSum = leftside.reduce((a, b) => a + b, 0);
+      let rhsSum = rightside.reduce((a, b) => a + b, 0);
 
-  do {
-    let sumLeft = 0;
-    for (let left = 0; left < line + 1; left++) {
-      sumLeft += op;
-      op++;
-    }
+      // Test if sums are equal
+      if (lhsSum !== rhsSum) {
+          printOut(`Mismatch at line ${line}: Leftside (${leftside.join(' + ')}) = ${lhsSum}, rightside (${rightside.join(' + ')}) = ${rhsSum}`);
+          return; // Stop the loop if a mismatch is found
+      }
+  }
 
-    let sumRight = 0;
-    for (let Right = 0; Right < line; Right++) {
-      sumRight += op;
-      op++;
-    }
-
-    if (sumLeft !== sumLeft) {
-      ok = false;
-    } else {
-      ok = true;
-    }
-    line++;
-  } while (ok);
+  // If all lines pass
+  printOut("Maths fun!");
 }
 
-printOut("Replace this with you answer!");
+// Call the function
+testMathExpressions();
+
+
 printOut(newLine);
 
 /* Task 10*/
 printOut("--- Part 10 ---------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
-printOut("Replace this with you answer!");
+//Recursive function. Create a function that calculates the factorial of a given number. Factorial of 5 = 5 * 4 * 3 * 2 * 1. Factorial of 6 = 6 * 5 * 4 * 3 * 2 * 1. Etc
+
+function factorial(n) {
+  // Base case: If n is 0 or 1, return 1
+  if (n === 0 || n === 1) {
+    return 1;
+  } else {
+    // Recursive case: n * factorial of (n-1)
+    return n * factorial(n - 1);
+  }
+}
+
+
+let number = 8;
+let result = factorial(number);
+printOut("Factorial of " +  number + " is " + result);
+
+
 printOut(newLine);
