@@ -97,8 +97,33 @@
   </div>
 </fieldset>
 <ol>
-  <li>[Write the question here, and copy this for more questions]</li>
-  <p>[Write your answer here, and copy this for more answers]</p>
+  <li>[n this assignment, we use the DOM. Explain how this library can help us develop interactive web
+    pages.]</li>
+  <p>[The Document Object Model (DOM) is a programming interface for web documents. It represents the 
+    structure of a web page as a tree of objects, allowing developers to dynamically manipulate its 
+    content, structure, and styles using JavaScript. ]</p>
+
+  <li>[What is an event? Simply explain what happens when we add an event listener to an object. ]</li>
+  <p>[An event is a signal that something has happened in a web page. Examples include a user clicking a 
+    button, typing text, or scrolling a page. Events provide a way for the browser to communicate user 
+    actions or system changes to the script. When we add an event listener to an object, we instruct the 
+    browser to watch for a specific event on that object and execute a callback function when the event
+    occurs.]</p>
+
+  <li>[Sometimes we need to use an event object to get data from the event. Explain how this event
+    object is structured, don't explain all functions or attributes. Try to explain, for example, how to
+    retrieve data from a keyboard or mouse.]</li>
+  <p>[The event object is automatically passed to the event listener's callback function when the event 
+    is triggered. It contains information about the event and the element that triggered it. For a 
+    mouse you can use event.clientX and event.clientY to find where the mouse clicked. So, the event 
+    object is like a detective bringing you clues about what just happened.]</p>
+
+  <li>[Explain the main difference between DOM id and DOM name. Can we have identical IDs?]</li>
+  <p>[DOM id is a unique name for one specific element on the page. It’s like a person’s fingerprint no 
+    two can be the same. DOM name is used for groups of elements. It’s like a family name. Many elements 
+    can share the same name, especially in forms (e.g., radio buttons with the same name belong to the 
+    same group). we can not have identical IDs. Every ID must be unique. If you accidentally use the 
+    same ID more than once, the browser gets confused and may not work properly. ]</p>
 </ol>
 <script type="module" src="./task_4-3.mjs" defer></script>
 </body>
