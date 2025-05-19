@@ -2,8 +2,8 @@
 //------------------------------------------------------------------------------------------
 //----------- Import modules, mjs files  ---------------------------------------------------
 //------------------------------------------------------------------------------------------
-import libSprite from "../../../../vscode/DAT101/common/script/libs/libSprite_v2.mjs";
-import lib2D from "../../../../vscode/DAT101/common/script/libs/lib2d_v2.mjs";
+import libSprite from "../../common/libs/libSprite_v2.mjs";
+import lib2D from "../../common/libs/lib2d_v2.mjs";
 import { GameProps, SheetData, bateIsEaten } from "./game.mjs"
 import { TBoardCell, EBoardCellInfoType } from "./gameBoard.mjs";
 
@@ -77,6 +77,7 @@ class TSnakeHead extends TSnakePart {
     const boardCellInfo = GameProps.gameBoard.getCell(this.boardCell.row, this.boardCell.col);
     if(boardCellInfo.infoType === EBoardCellInfoType.Bait) {
       bateIsEaten();
+
     }else{
       /* Decrease the score if the snake head is not on a bait cell */
     }
@@ -190,6 +191,8 @@ class TSnakeTail extends TSnakePart {
   }
 
   update(){
+    let boardCellInfo = GameProps.gameBoard.getCell(this.boardCell.row, this.boardCell.col);
+    boardCellInfoType.infoType = EBoardCellInfoType.Empty;
     switch (this.direction) {
       case EDirection.Up:
         this.boardCell.row--;
@@ -204,7 +207,7 @@ class TSnakeTail extends TSnakePart {
         this.boardCell.row++;
         break;
     }
-    const boardCellInfo = GameProps.gameBoard.getCell(this.boardCell.row, this.boardCell.col);
+    boardCellInfo = GameProps.gameBoard.getCell(this.boardCell.row, this.boardCell.col);
     boardCellInfo.infoType = EBoardCellInfoType.Empty; // Clear the cell, when the tail moves
     this.direction = boardCellInfo.direction;
     this.index = this.direction;
@@ -219,6 +222,7 @@ export class TSnake {
   #head = null;
   #body = null;
   #tail = null;
+
   constructor(aSpriteCanvas, aBoardCell) {
     this.#head = new TSnakeHead(aSpriteCanvas, aBoardCell);
     let col = aBoardCell.col - 1;
@@ -250,9 +254,12 @@ export class TSnake {
       return false; // Collision detected, do not continue
     }
     return true; // No collision, continue
+
   }
 
   setDirection(aDirection) {
     this.#head.setDirection(aDirection);
   } // setDirection
+
+
 }
